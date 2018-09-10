@@ -30,13 +30,16 @@
 </head>
 
 <body>
-    <div>
+    <div id="container">
         <canvas id="webglcanvas" width="1900" height="1000"></canvas>
     </div>
     <script type="text/javascript">
         $(document).ready(
             function () {
                 var canvas = document.getElementById("webglcanvas");
+                var container = $("#container");
+                canvas.width = container.width();
+                canvas.height = container.height();
                 // create the scene
                 createScene(canvas);
                 // add mouse handling so we can rotate the scene

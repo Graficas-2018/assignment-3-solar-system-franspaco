@@ -9,7 +9,7 @@ var controls = null;
 var sphere = null;
 var orbit_line = null;
 
-var backgroungImg = "img/stars.jpeg";
+var backgroungImg = "img/stars.jpg";
 var currentTime = Date.now();
 
 function run() {
@@ -143,8 +143,8 @@ function createScene(canvas) {
     scene = new THREE.Scene();
 
     // Image background
-    // scene.background = new THREE.TextureLoader().load(backgroungImg);
-    scene.background = new THREE.Color(0.0, 0.0, 0.0);
+    scene.background = new THREE.TextureLoader().load(backgroungImg);
+    // scene.background = new THREE.Color(0.0, 0.0, 0.0);
 
     // Add  a camera so we can view the scene
     camera = new THREE.PerspectiveCamera(
