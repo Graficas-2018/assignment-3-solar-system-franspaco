@@ -59,10 +59,13 @@ function createMaterials() {
         });
     });
     materials["ring"] = new THREE.MeshLambertMaterial({
-        map: THREE.ImageUtils.loadTexture("img/saturn_ring.jpg"),
+        map: THREE.ImageUtils.loadTexture("img/saturn_ring.png"),
         bumpMap: THREE.ImageUtils.loadTexture("img/ring_bumpmap.jpg"),
         bumpScale: 0.06,
-        side: THREE.DoubleSide
+        side: THREE.DoubleSide,
+        emissive: new THREE.Color(0xE0BE98),
+        emissiveIntensity: 0.1,
+        transparent: true,
     });
 }
 
@@ -183,8 +186,10 @@ function createScene(canvas) {
     sunLight.shadowCameraVisible = true;
     sunLight.shadowDarkness = 1;
     sunLight.castShadow = true;
-    sunLight.shadow.mapSize.width = 2048;
-    sunLight.shadow.mapSize.height = 2048;
+    // sunLight.shadow.mapSize.width = 2048;
+    // sunLight.shadow.mapSize.height = 2048;
+    sunLight.shadow.mapSize.width = 4096;
+    sunLight.shadow.mapSize.height = 4096;
     scene.add(sunLight);
 
     makeAndAddPlanet("mercury", scene);
@@ -200,6 +205,8 @@ function createScene(canvas) {
     var rings = new THREE.RingGeometry(2, 3, 64);
     var mesh = new THREE.Mesh(rings, materials["ring"]);
     mesh.rotation.x += (0.9 * Math.PI) / 2;
+    mesh.receiveShadow = true
+    mesh.castShadow = true;
     saturnGroup.add(mesh);
 
     makeAndAddPlanet("moon", earthGroup);
@@ -236,7 +243,7 @@ async function asteroids() {
         thing.position.x = length * Math.cos(rot);
         thing.position.z = length * Math.sin(rot);
         thing.position.y = Math.random()
-        thing.castShadow = true;
+        // thing.castShadow = true;
         asteroid_belt.add(thing);
     }
 
