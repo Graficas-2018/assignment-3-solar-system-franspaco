@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../libs/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="../libs/colorpicker/css/colorpicker.css" />
+
+    <script src="../libs/jquery-3.3.1/jquery-3.3.1.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.js"></script>
+    <script src="../libs/three.js/three.js"></script>
+    <script src="../libs/colorpicker/js/colorpicker.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="OBJLoader.js"></script>
+
+    <script src="body_data.js"></script>
+
+    <script src="solar_system.js"></script>
+
+    <title>Seppuku</title>
+    <style>
+        #webglcanvas {
+            width: 100%;
+            height: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="webglcanvas" width="1900" height="1000"></canvas>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                var canvas = document.getElementById("webglcanvas");
+                // create the scene
+                createScene(canvas);
+                // add mouse handling so we can rotate the scene
+                // addMouseHandler(canvas);
+                // initialize the controls
+                // initControls();
+                // Run the run loop
+                run();
+            }
+        );
+    </script>
+    </body >
+</html >
