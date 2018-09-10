@@ -231,7 +231,6 @@ async function asteroids() {
     for (let index = 0; index < 1500; index++) {
         var thing = new THREE.Mesh(geometry, materials["asteroid"]);
         var length = normalRandomScaled(mean , orbit_scale*20);
-        console.log("Placed: " + length);
         var rot = deg2rad(360 * Math.random());
         thing.scale.multiplyScalar(0.001);
         thing.position.x = length * Math.cos(rot);
