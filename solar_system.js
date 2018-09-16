@@ -235,7 +235,7 @@ async function asteroids() {
     var asteroid_belt = new THREE.Object3D();
     var mean = (orbit_scale*orbit_size["jupiter"] + orbit_scale*orbit_size["mars"])/2;
     console.log(mean);
-    for (let index = 0; index < 1500; index++) {
+    for (let index = 0; index < 100; index++) {
         var thing = new THREE.Mesh(geometry, materials["asteroid"]);
         var length = normalRandomScaled(mean , orbit_scale*20);
         var rot = deg2rad(360 * Math.random());
